@@ -1,0 +1,4 @@
+;  4future management ag- Thomas Plüss- 2020-03-03
+Do lvFileOps.$createfile(ivConfigFilePath)
+
+Do $cinst.$save()

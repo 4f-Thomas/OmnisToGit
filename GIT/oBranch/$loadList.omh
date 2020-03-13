@@ -1,0 +1,28 @@
+;  4future management ag- Thomas Plüss- 2020-03-13
+If not(tvCmd.$run('loadBranch',lvArgs))
+	Do $ctask.$showmessage('Error')
+End If
+Calculate lvCommit as tvCmd.$getComm()
+
+Do ivBranchList.$clear()
+
+Do lvCommitList.$cols.$add('string',kCharacter)
+
+While len(lvCommit)>0
+	Do lvCommitList.$add(left(lvCommit,pos(chr(13),lvCommit)))
+	Calculate lvCommit as mid(lvCommit,pos(chr(13),lvCommit)+1)
+End While
+
+For lvCommitList.$line from 1 to lvCommitList.$linecount step 1
+	Calculate lvCommitList.string as trim(lvCommitList.string,kTrue,kTrue,chr(13))
+	Calculate lvCommitList.string as trim(lvCommitList.string)
+	
+	If pos('*',lvCommitList.string)>0
+		Calculate lvCommitList.string as replace(lvCommitList.string,'* ','')
+		Do tvSetting.$set('current_branch',lvCommitList.string)
+	End If
+	
+	Do ivBranchList.$add(lvCommitList.string)
+End For
+
+Quit method ivBranchList

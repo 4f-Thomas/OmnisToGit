@@ -1,0 +1,16 @@
+;  4future management ag- Thomas Plüss- 2020-03-10
+If pBigWindow
+	Calculate lvWindowPos as kWindowDrawerTop
+Else
+	Calculate lvWindowPos as kWindowCenter
+End If
+
+Do $clib.$windows.wMessage.$openonce("Git Error",lvWindowPos,pMessage,pBigWindow,pButton_1_Text,pButton_1_Function,pButton_2_Text,pButton_2_Function) Returns lvWindowReference
+
+Calculate lvFunction as lvWindowReference.$getFunction()
+
+Do lvWindowReference.$close()
+
+If len(lvFunction)>0
+	Do [lvFunction]
+End If

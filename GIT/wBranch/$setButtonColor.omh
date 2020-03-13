@@ -1,0 +1,18 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+If pLine>0&pLine<=ivBranchList.$linecount
+	If pLine=1
+		Do $cinst.$objs.Grid_Library.$objs.Entry_Branch.[pLine].$enabled.$assign(kTrue)
+		Do $cinst.$objs.Grid_Library.$objs.Button_Delete.[pLine].$text.$assign('Add')
+	Else
+		Do $cinst.$objs.Grid_Library.$objs.Entry_Branch.[pLine].$enabled.$assign(kFalse)
+		Do $cinst.$objs.Grid_Library.$objs.Button_Delete.[pLine].$text.$assign('Delete')
+		
+		If ivBranchList.[pLine].name=tvSetting.$get('current_branch')
+			Do $cinst.$objs.Grid_Library.$objs.Entry_Branch.[pLine].$forecolor.$assign(kGreen)
+			Do $cinst.$objs.Grid_Library.$objs.Button_Delete.[pLine].$enabled.$assign(kFalse)
+		Else
+			Do $cinst.$objs.Grid_Library.$objs.Entry_Branch.[pLine].$forecolor.$assign(kColorWindow)
+			Do $cinst.$objs.Grid_Library.$objs.Button_Delete.[pLine].$enabled.$assign(kTrue)
+		End If
+	End If
+End If

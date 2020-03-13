@@ -1,0 +1,55 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+Do FileOps.$filelist(kFileOpsIncludeDirectories,tvSetting.$get("local_path")) Returns lvDirList
+
+Do lvDirList.$cols.$add("save",kBoolean)
+Do lvDirList.$sendall($ref.save.$assign(kTrue))
+
+Do $clib.$windows.wImportLibrary.$openonce("Import Repository",kWindowCenter,lvDirList) Returns lvWindowReference
+
+Calculate lvDirList as lvWindowReference.$getLibraryList()
+Do lvWindowReference.$close()
+
+If lvDirList.$search($ref.save=kTrue,1,0,1,1)>0
+	
+	For lvDirList.$line from 1 to lvDirList.$linecount step 1
+		
+		Calculate lvLocalPath as con(tvSetting.$get("local_path"),sys(9),lvDirList.name)
+		Calculate lvLibraryPath as con(tvSetting.$get("library_path"),sys(9),lvDirList.name,'.lbs')
+		
+		If $libs.$findname(lvDirList.name)
+			Close library {[lvDirList.name]}
+		End If
+		
+		;  Omnis needs some time to close the library
+		While $libs.$findname(lvDirList.name)
+			Do sleep(100)
+		End While
+		
+		If FileOps.$doesfileexist(lvLibraryPath)
+			Do FileOps.$deletefile(lvLibraryPath)
+		End If
+		
+		While FileOps.$doesfileexist(lvLibraryPath)
+			Do sleep(100)
+		End While
+		
+		Do $root.$importjson(lvLocalPath,lvLibraryPath,lvErrorList,lvWarnList)
+		
+		If lvErrorList.$linecount=0
+			Open library (Do not close others,Do not open startup task) {[lvLibraryPath],[lvDirList.name]}
+		Else
+			For lvErrorList.$line from 1 to lvErrorList.$linecount step 1
+				If lvErrorList.$line=1
+					Calculate lvMessage as con('Library: ',lvDirList.name)
+				End If
+				
+				Calculate lvMessage as con(lvMessage,chr(13),lvErrorList.errorcode,' => ',lvErrorList.errortext)
+			End For
+		End If
+	End For
+	
+	If len(lvMessage)>0
+		Do $ctask.$showmessage(lvMessage,kTrue)
+	End If
+	
+End If

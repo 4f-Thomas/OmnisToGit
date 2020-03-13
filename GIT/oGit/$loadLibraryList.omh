@@ -1,0 +1,20 @@
+;  4future management ag- Thomas Plüss- 2020-03-11
+Do $libs.$makelist($ref.$name) Returns lLibraryList
+
+;  add all newly opened library
+For lLibraryList.$line from 1 to lLibraryList.$linecount step 1
+	If ivLibraryList.$search($ref.name=lLibraryList.C1,1,0,1,1)=0
+		Do ivLibraryList.$add(lLibraryList.C1,kTrue)
+	End If
+End For
+
+;  search all open libraries
+For lLibraryList.$line from 1 to lLibraryList.$linecount step 1
+	Do ivLibraryList.$search($ref.name=lLibraryList.C1,1,0,1,0)
+End For
+
+Do ivLibraryList.$remove(kListKeepSelected)     ;; Remove all closed libraries
+
+Do ivLibraryList.$search(kFalse)     ;; Deselect all Lines
+
+Quit method ivLibraryList

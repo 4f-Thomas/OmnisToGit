@@ -1,0 +1,4 @@
+;  4future management ag- Thomas Plüss- 2020-03-10
+Calculate ivTempFile as con(sys(115),'temp.bat')
+Calculate ivDir as con(sys(115),'git',sys(9))
+Calculate ivCommFile as con(ivDir,'comm.txt')

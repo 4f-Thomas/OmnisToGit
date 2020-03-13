@@ -1,0 +1,5 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+On evClick
+	Calculate ivLibraryList.save as not(ivLibraryList.save)
+	Do $cinst.$setButtonColor(ivLibraryList.$line)
+	Do $cfield.$redraw()

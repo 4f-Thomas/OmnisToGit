@@ -1,0 +1,19 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+On evClick
+	If ivBranchList.$line=1
+		If $cinst.$checkNewBranch(ivBranchList.[ivBranchList.$line].name)
+			If tvGit.$do('addBranch',ivBranchList.[ivBranchList.$line].name)
+				Do $cinst.$build()
+			Else
+				Calculate ivBranchList.[1].name as ''
+			End If
+		Else
+			Calculate ivBranchList.[1].name as ''
+		End If
+	Else
+		Calculate lvFunction as con("tvGit.$do('removeBranch','",ivBranchList.[ivBranchList.$line].name,"')")
+		
+		Do $ctask.$showmessage(con('would you really like to delete the branch "',ivBranchList.[ivBranchList.$line].name,'"?'),kFalse,'Delete',lvFunction,'Cancel')
+		Do $cinst.$build()
+	End If
+	Do $cinst.$redraw()

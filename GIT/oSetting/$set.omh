@@ -1,0 +1,4 @@
+;  4future management ag- Thomas Plüss- 2020-03-03
+If ivSettingRow.$cols.$findname(pKey)
+	Calculate ivSettingRow.[pKey] as pVal
+End If

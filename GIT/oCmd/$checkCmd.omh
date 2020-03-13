@@ -1,0 +1,31 @@
+;  4future management ag- Thomas Plüss- 2020-03-11
+
+Calculate lvStartTime as #T
+While not(FileOps.$doesfileexist(ivCommFile))
+	Do sleep(100)
+	Calculate lvCheckTime as #T
+	If ddiff(kSecond,lvStartTime,lvCheckTime)>10
+		Quit method kFalse
+	End If
+End While
+
+;  As long as the file is still being written, it should not be opened
+While lvCommFileOps.$getfilesize()>=lvFileSize
+	Do sleep(10)
+	Calculate lvFileSize as lvCommFileOps.$getfilesize()
+End While
+
+While not(lvCommFileOps.$isopen())
+	Do sleep(100)
+	Do lvCommFileOps.$openfile(ivCommFile)
+End While
+
+Do lvCommFileOps.$readcharacter(kUniTypeAnsiLatin1,ivComm)
+Do lvCommFileOps.$closefile()
+
+While FileOps.$doesfileexist(ivCommFile)
+	Do sleep(100)
+	Do FileOps.$deletefile(ivCommFile)
+End While
+
+Quit method kTrue

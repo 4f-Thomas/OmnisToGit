@@ -1,0 +1,8 @@
+;  4future management ag- Thomas Plüss- 2020-03-13
+If len(pText)>0
+	Do $cinst.$objs.[con('Button_',pNumber)].$visible.$assign(kTrue)
+	Do $cinst.$objs.[con('Button_',pNumber)].$text.$assign(pText)
+Else If pNumber=1
+	Do $cinst.$objs.[con('Button_',pNumber)].$visible.$assign(kTrue)
+	Do $cinst.$objs.[con('Button_',pNumber)].$text.$assign('OK')
+End If

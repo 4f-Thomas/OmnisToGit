@@ -1,0 +1,48 @@
+{
+	"classtype": "kTask",
+	"internalversion": 42,
+	"tvardefs": [
+		{
+			"name": "tvCmd",
+			"order": 2,
+			"type": "kObject",
+			"subtype": "GIT.oCmd",
+			"sublen": 0
+		},
+		{
+			"name": "tvGit",
+			"order": 3,
+			"type": "kObject",
+			"subtype": "GIT.oGit",
+			"sublen": 0
+		},
+		{
+			"name": "tvSetting",
+			"order": 1,
+			"type": "kObject",
+			"subtype": "GIT.oSetting",
+			"sublen": 0
+		}
+	],
+	"cvardefs": [
+
+	],
+	"ivardefs": [
+
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2020-03-03 10:50:04",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": false,
+		"issupercomponent": false,
+		"moddate": "2020-03-13 14:18:07",
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

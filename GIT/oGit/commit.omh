@@ -1,0 +1,44 @@
+;  4future management ag- Thomas Plüss- 2020-03-11
+Do $clib.$windows.wCommit.$openonce("Git Commit",kWindowCenter) Returns lvWindowReference
+
+If not(lvWindowReference.$getStatus())
+	Quit method kFalse
+End If
+
+Calculate ivLibraryList as lvWindowReference.$getLibraryList()
+
+If ivLibraryList.$search($ref.save=kTrue,1,0,1,1)>0
+	If len(lvWindowReference.$getCommit())=0
+		Calculate lvDateString as dat(#D,"YMDHNS")
+		Do lvArgs.$add(lvDateString)
+	Else
+		Do lvArgs.$add(lvWindowReference.$getCommit())
+	End If
+	
+	Do lvWindowReference.$close()
+	
+	For ivLibraryList.$line from 1 to ivLibraryList.$linecount step 1
+		If ivLibraryList.save=kFalse
+			Jump to start of loop
+		End If
+		
+		If $libs.$findname(ivLibraryList.name)
+			Calculate lvLocalLibraryPath as con(tvSetting.$get('local_path'),sys(9),ivLibraryList.name)
+			If not(FileOps.$doesfileexist(lvLocalLibraryPath))
+				Do FileOps.$createdir(lvLocalLibraryPath)
+			End If
+			Do $root.$exportjson($libs.[ivLibraryList.name],lvLocalLibraryPath)
+		End If
+		
+	End For
+	
+	Do method init
+	
+	If tvCmd.$run('commit',lvArgs)
+		Do $ctask.$showmessage(tvCmd.$getComm(),kTrue)
+	Else
+		Do $ctask.$showmessage('Error')
+	End If
+Else
+	Do lvWindowReference.$close()
+End If

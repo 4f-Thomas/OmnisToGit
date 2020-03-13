@@ -1,0 +1,2 @@
+Do tvSetting.$load()
+Do $clib.$menus.mGit.$open()

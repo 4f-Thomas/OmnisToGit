@@ -1,0 +1,5 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+Do ivLibraryList.$cols.$add("name",kCharacter)
+Do ivLibraryList.$cols.$add("save",kBoolean)
+
+Do ivBranch.$loadList()

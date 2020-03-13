@@ -1,0 +1,8 @@
+;  4future management ag- Thomas Plüss- 2020-03-03
+If lvFileOps.$openfile(ivConfigFilePath)
+	Do lvFileOps.$readcharacter(kUniTypeUTF8,lvJSON)
+	Do OJSON.$jsontolistorrow(lvJSON) Returns ivSettingRow
+	Do lvFileOps.$closefile()
+Else
+	Do $cinst.$create()
+End If

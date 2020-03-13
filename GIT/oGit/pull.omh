@@ -1,0 +1,15 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+Do method init
+
+Do lvArgs.$add(tvSetting.$get("current_branch"))
+
+If tvCmd.$run("pull",lvArgs,kTrue)
+	Calculate lvCommit as tvCmd.$getComm()
+	If pos('Already up to date.',lvCommit)>0
+		Do $cinst.$importLibraryList()
+	Else
+		Do $ctask.$showmessage(lvCommit,kFalse,'Import','tvGit.$importLibraryList()','Cancel')
+	End If
+Else
+	Do $ctask.$showmessage('Error')
+End If

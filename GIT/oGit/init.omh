@@ -1,0 +1,10 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+Calculate lvGitFolder as con(tvSetting.$get("local_path"),sys(9),'.git',sys(9))
+If not(FileOps.$doesfileexist(lvGitFolder))
+	Do lvArgs.$add(tvSetting.$get("user_name"))
+	Do lvArgs.$add(tvSetting.$get("user_email"))
+	Do lvArgs.$add(tvSetting.$get("user_password"))
+	Do lvArgs.$add(tvSetting.$get("repository_name"))
+	Do lvArgs.$add(tvSetting.$get("repository_path"))
+	Do tvCmd.$run("init",lvArgs)
+End If

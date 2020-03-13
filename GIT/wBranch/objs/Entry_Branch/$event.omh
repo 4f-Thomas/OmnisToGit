@@ -1,0 +1,12 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+On evClick
+	If $cfield.$enabled=kFalse
+		If ivBranchList.[ivBranchList.$line].name<>tvSetting.$get('current_branch')
+			If tvGit.$do('setCurrentBranch',ivBranchList.[ivBranchList.$line].name)
+				If len(tvCmd.$getComm())>0
+					Do $ctask.$showmessage(tvCmd.$getComm())
+				End If
+				Do $cinst.$build()
+			End If
+		End If
+	End If

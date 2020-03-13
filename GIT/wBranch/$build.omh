@@ -1,0 +1,8 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+Calculate ivBranchList as tvGit.$loadBranchList()
+
+Do ivBranchList.$addbefore(ivBranchList.[1],'')     ;; Add empty Field
+
+For ivBranchList.$line from 1 to ivBranchList.$linecount step 1
+	Do $cinst.$setButtonColor(ivBranchList.$line)
+End For

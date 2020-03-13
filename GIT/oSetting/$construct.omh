@@ -1,0 +1,14 @@
+;  4future management ag- Thomas Plüss- 2020-03-03
+Calculate ivConfigFilePath as con(sys(115),sys(9),'git',sys(9),'config.json')
+
+Do ivSettingRow.$cols.$add("user_name",kCharacter)
+Do ivSettingRow.$cols.$add("user_email",kCharacter)
+Do ivSettingRow.$cols.$add("user_password",kCharacter)
+
+Do ivSettingRow.$cols.$add("repository_path",kCharacter)
+Do ivSettingRow.$cols.$add("repository_name",kCharacter)
+Do ivSettingRow.$cols.$add("local_path",kCharacter)
+
+Do ivSettingRow.$cols.$add("library_path",kCharacter)
+
+Do ivSettingRow.$cols.$add("current_branch",kCharacter)

@@ -1,0 +1,5 @@
+;  4future management ag- Thomas Plüss- 2020-03-13
+Do method init
+
+Do ivBranch.$removeBranch(pBranch) Returns lvReturns
+Quit method lvReturns

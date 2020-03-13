@@ -1,0 +1,14 @@
+;  4future management ag- Thomas Plüss- 2020-03-13
+If ivBranchList.$search($ref.name=pBranch)=0
+	Do lvArgs.$add(pBranch)
+	
+	If tvCmd.$run('addBranch',lvArgs)
+		Do $cinst.$loadList()
+		Quit method kTrue
+	Else
+		Do $ctask.$showmessage('Error')
+	End If
+Else
+	Do $ctask.$showmessage('Branch already exists')
+End If
+Quit method kFalse

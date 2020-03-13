@@ -1,0 +1,4 @@
+;  4future management ag- Thomas Plüss- 2020-03-13
+Calculate ivCurrentBranch as tvSetting.$get('current_branch')
+
+Do ivBranchList.$cols.$add("name",kCharacter)

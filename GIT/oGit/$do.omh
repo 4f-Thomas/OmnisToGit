@@ -1,0 +1,19 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+;  This function is used so that git never runs without important settings.
+If tvSetting.$check()
+	If len(pFunction)>0
+		If len(pParam)>0
+			Do method [pFunction] (pParam) Returns lReturns
+		Else
+			Do method [pFunction] Returns lReturns
+		End If
+	End If
+Else
+	Do $ctask.$showmessage('The settings have not been set up, please set the settings first up',kFalse,'Open Settings','tvSetting.$edit()','Cancel')
+End If
+
+If lReturns=kTrue
+	Quit method kTrue
+Else
+	Quit method kFalse
+End If

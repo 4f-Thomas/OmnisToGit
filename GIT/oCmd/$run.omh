@@ -1,0 +1,23 @@
+;  4future management ag- Thomas Plüss- 2020-03-10
+Calculate ivComm as ''
+
+If pos('.bat',pScriptName)=0
+	Calculate pScriptName as con(pScriptName,'.bat')
+End If
+
+Do pArguments.$addbefore(1,ivCommFile)
+Do pArguments.$addbefore(1,tvSetting.$get('local_path'))
+
+For pArguments.$line from 1 to pArguments.$linecount step 1
+	Calculate lvArguments as con(lvArguments,' "',pArguments.C1,'"')
+End For
+
+Calculate lvCmdScript as con("CMD /c ",'""',ivDir,pScriptName,'"',lvArguments,'"')
+
+If pShowConsole=kTrue
+	Start program normal {[lvCmdScript]}
+Else
+	Start program minimized {[lvCmdScript]}
+End If
+
+Quit method $cinst.$checkCmd()

@@ -1,0 +1,10 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+If pLine>0&pLine<=ivLibraryList.$linecount
+	If ivLibraryList.[pLine].save
+		Do $cinst.$objs.Grid_Library.$objs.Entry_Save.[pLine].$forecolor.$assign(kGreen)
+		Do $cinst.$objs.Grid_Library.$objs.Entry_Save.[pLine].$textcolor.$assign(kBlack)
+	Else
+		Do $cinst.$objs.Grid_Library.$objs.Entry_Save.[pLine].$forecolor.$assign(kRed)
+		Do $cinst.$objs.Grid_Library.$objs.Entry_Save.[pLine].$textcolor.$assign(kWhite)
+	End If
+End If

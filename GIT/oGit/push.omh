@@ -1,0 +1,8 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+Do method init
+
+Do lvArgs.$add(tvSetting.$get("current_branch"))
+
+If not(tvCmd.$run("push",lvArgs,kTrue))
+	Do $ctask.$showmessage('Error')
+End If

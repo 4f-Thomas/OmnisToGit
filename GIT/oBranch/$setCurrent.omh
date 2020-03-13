@@ -1,0 +1,14 @@
+;  4future management ag- Thomas Plüss- 2020-03-13
+If ivBranchList.$search($ref.name=pBranch)>0
+	Do lvArgs.$add(pBranch)
+	
+	If tvCmd.$run('setBranch',lvArgs)
+		Calculate ivCurrentBranch as pBranch
+		Do tvSetting.$set('current_branch',pBranch)
+		Do tvSetting.$save()
+		Quit method kTrue
+	Else
+		Do $ctask.$showmessage('Error')
+	End If
+End If
+Quit method kFalse

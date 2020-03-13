@@ -1,0 +1,24 @@
+;  4future management ag- Thomas Plüss- 2020-03-10
+Calculate lvCheckStatus as kTrue
+
+Do lvRequiredParts.$cols.$add("key",kCharacter)
+
+Do lvRequiredParts.$add("user_name")
+Do lvRequiredParts.$add("user_password")
+Do lvRequiredParts.$add("user_email")
+Do lvRequiredParts.$add("repository_path")
+Do lvRequiredParts.$add("local_path")
+Do lvRequiredParts.$add("library_path")
+
+For lvRequiredParts.$line from 1 to lvRequiredParts.$linecount step 1
+	If len(ivSettingRow.[lvRequiredParts.key])=0
+		Calculate lvCheckStatus as kFalse
+		Break to end of loop
+	End If
+End For
+
+If lvCheckStatus
+	Quit method kTrue
+Else
+	Quit method kFalse
+End If

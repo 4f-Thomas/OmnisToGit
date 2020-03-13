@@ -1,0 +1,4 @@
+;  4future management ag- Thomas Plüss- 2020-03-13
+On evClick     ;; Event Parameters - pRow( Itemreference )
+	Do tvSetting.$load()
+	Do $cwind.$close()

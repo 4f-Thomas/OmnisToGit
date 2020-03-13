@@ -1,0 +1,8 @@
+;  4future management ag- Thomas Plüss- 2020-03-13
+On evClick     ;; Event Parameters - pRow( Itemreference )
+	If tvSetting.$check()
+		Do tvSetting.$save()
+		Do $cwind.$close()
+	Else
+		Do $ctask.$showmessage('Please fill all required fields!')
+	End If

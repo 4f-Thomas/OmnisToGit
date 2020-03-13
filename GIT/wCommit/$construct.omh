@@ -1,0 +1,9 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+Calculate ivLibraryList as tvGit.$loadLibraryList()
+Calculate ivStatus as kFalse
+
+For ivLibraryList.$line from 1 to ivLibraryList.$linecount step 1
+	Do $cinst.$setButtonColor(ivLibraryList.$line)
+End For
+
+Enter data

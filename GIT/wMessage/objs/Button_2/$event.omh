@@ -1,0 +1,4 @@
+;  4future management ag- Thomas Plüss- 2020-03-13
+On evClick
+	Do ivFunctionList.$line.$assign(2)
+	Queue OK

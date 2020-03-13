@@ -1,0 +1,33 @@
+;  4future management ag- Thomas Plüss- 2020-03-13
+Do ivFunctionList.$cols.$add('function',kCharacter)
+
+Calculate ivMessage as pMessage
+
+Do ivFunctionList.$add(pButton_1_Function)
+Do $cinst.$initButton(1,pButton_1_Text)
+
+Do ivFunctionList.$add(pButton_2_Function)
+Do $cinst.$initButton(2,pButton_2_Text)
+
+;  Resize if big window
+If pBigWindow=kTrue
+	Do $cwind.$width.$assign(980)
+	Do $cwind.$objs.Message.$width.$assign(973)
+	Do $cwind.$objs.Button_1.$left.$assign(430)
+	Do $cwind.$objs.Button_2.$left.$assign(300)
+	Do $cwind.$objs.Button_3.$left.$assign(560)
+	Do $cwind.$objs.Button_4.$left.$assign(430)
+	Do $cwind.$objs.Button_5.$left.$assign(560)
+	Do $cwind.$objs.Button_6.$left.$assign(300)
+	
+	Do $cwind.$height.$assign(562)
+	Do $cwind.$objs.Message.$height.$assign(483)
+	Do $cwind.$objs.Button_1.$top.$assign(530)
+	Do $cwind.$objs.Button_2.$top.$assign(530)
+	Do $cwind.$objs.Button_3.$top.$assign(530)
+	Do $cwind.$objs.Button_4.$top.$assign(497)
+	Do $cwind.$objs.Button_5.$top.$assign(497)
+	Do $cwind.$objs.Button_6.$top.$assign(497)
+End If
+
+Enter data

@@ -1,0 +1,40 @@
+{
+	"classtype": "kObjectclass",
+	"internalversion": 124,
+	"designtaskname": "Startup_Task",
+	"cvardefs": [
+
+	],
+	"ivardefs": [
+		{
+			"name": "ivBranch",
+			"order": 2,
+			"type": "kObject",
+			"subtype": "oBranch",
+			"sublen": 0
+		},
+		{
+			"name": "ivLibraryList",
+			"order": 1,
+			"type": "kList",
+			"subtype": "",
+			"sublen": 0
+		}
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2020-03-03 16:58:42",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2020-03-13 14:07:47",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	}
+}

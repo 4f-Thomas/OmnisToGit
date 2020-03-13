@@ -1,0 +1,36 @@
+{
+	"classtype": "kMenu",
+	"internalversion": 56,
+	"designtaskname": "Startup_Task",
+	"nextident": 1019,
+	"cvardefs": [
+
+	],
+	"ivardefs": [
+
+	],
+	"properties": {
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2020-03-03 16:33:00",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"enabled": true,
+		"external": true,
+		"helpfile": 0,
+		"helptext": "",
+		"inheritedorder": 0,
+		"issupercomponent": false,
+		"moddate": "2020-03-13 15:09:23",
+		"showascheckedout": false,
+		"title": {
+			"type": 0,
+			"calc": "Git"
+		},
+		"userinfo": "",
+		"users": "12345678",
+		"version": ""
+	}
+}

@@ -1,0 +1,6 @@
+;  4future management ag- Thomas Plüss- 2020-03-12
+If ivStatus
+	Quit method kTrue
+Else
+	Quit method kFalse
+End If
