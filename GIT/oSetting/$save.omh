@@ -1,5 +1,9 @@
 ;  4future management ag- Thomas Plüss- 2020-03-03
-Do lvFileOps.$openfile(ivConfigFilePath)
-Calculate lvJSON as OJSON.$listorrowtojson(ivSettingRow,kUniTypeCharacter)
-Do lvFileOps.$writecharacter(kUniTypeUTF8,lvJSON)
-Do lvFileOps.$closefile()
+If FileOps.$doesfileexist(ivConfigFilePath)
+	Do lvFileOps.$openfile(ivConfigFilePath)
+	Calculate lvJSON as OJSON.$listorrowtojson(ivSettingRow,kUniTypeCharacter)
+	Do lvFileOps.$writecharacter(kUniTypeUTF8,lvJSON)
+	Do lvFileOps.$closefile()
+Else
+	Do $cinst.$create()
+End If

@@ -1,6 +1,6 @@
 {
 	"classtype": "kObjectclass",
-	"internalversion": 46,
+	"internalversion": 48,
 	"designtaskname": "Startup_Task",
 	"cvardefs": [
 
@@ -31,7 +31,7 @@
 		"editordata": "",
 		"external": true,
 		"issupercomponent": false,
-		"moddate": "2020-03-13 14:15:57",
+		"moddate": "2020-03-13 15:47:42",
 		"selfcontained": false,
 		"showascheckedout": false,
 		"userinfo": "",
